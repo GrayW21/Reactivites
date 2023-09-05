@@ -7,6 +7,7 @@ using Infrastructure.Security;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Infrastructure.Photos;
 
 namespace API.Extensions
 {
@@ -36,6 +37,8 @@ namespace API.Extensions
                 services.AddValidatorsFromAssemblyContaining<Create>();
                 services.AddHttpContextAccessor();
                 services.AddScoped<IUserAccessor, UserAccessor>();
+                services.AddScoped<IPhotoAccessor, PhotoAccessor>();
+                services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
 
                 return services;
             }
