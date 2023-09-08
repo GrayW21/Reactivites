@@ -1,5 +1,6 @@
 using System.Reflection.Emit;
 using System.Runtime.ConstrainedExecution;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain
 {
@@ -15,5 +16,7 @@ namespace Domain
         public bool IsCancelled { get; set; }
 
         public ICollection<ActivityAttendee> Attendees { get; set; } = new List<ActivityAttendee>();
+
+        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     }
 }
